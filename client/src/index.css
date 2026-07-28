@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-900 antialiased;
+  @apply dark:bg-neutral-950 dark:text-neutral-100;
+}
+
+/* Reusable skeleton shimmer for loading cards. */
+.skeleton {
+  @apply relative overflow-hidden rounded-xl bg-neutral-200/70 dark:bg-neutral-800/70;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.5),
+    transparent
+  );
+  animation: shimmer 1.6s linear infinite;
+  background-size: 800px 100%;
+}
+.dark .skeleton::after {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.08),
+    transparent
+  );
+}
+
+/* Focus ring consistent with accessible keyboard navigation. */
+.focus-ring {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-950;
+}
+
+/* Thin, unobtrusive scrollbar for the app shell. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 dark:bg-neutral-700;
+  border-radius: 999px;
+}
