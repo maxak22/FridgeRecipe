@@ -4,6 +4,9 @@
   "description": "Backend for FridgeChef AI - converts a list of ingredients into a structured recipe using Groq.",
   "type": "module",
   "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "node --watch index.js",
     "start": "node index.js"
