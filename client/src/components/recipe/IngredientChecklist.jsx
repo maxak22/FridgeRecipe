@@ -8,7 +8,7 @@ export default function IngredientChecklist({
   onToggle,
 }) {
   return (
-    <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-soft dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+    <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
         Ingredients
       </h3>

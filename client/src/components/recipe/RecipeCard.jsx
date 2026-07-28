@@ -57,7 +57,7 @@ export default function RecipeCard({ recipe, onSaveRecipe, isSaved }) {
 
   return (
     <div className="animate-fade-in space-y-4">
-      <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-soft dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <RecipeHeader recipe={recipe} servings={servings} />
         </div>

@@ -1,10 +1,17 @@
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { Loader2, Sparkles } from "lucide-react";
+import IngredientChips from "./IngredientChips.jsx";
+import { parseIngredientChips } from "../utils/parseIngredients.js";
 
 const PLACEHOLDER = "Eggs\nMilk\nCheese\nBread\nTomatoes";
 
 export default function IngredientForm({ value, onChange, onSubmit, isLoading }) {
   const textareaRef = useRef(null);
+  const chips = useMemo(() => parseIngredientChips(value), [value]);
+
+  const handleRemoveChip = (chip) => {
+    onChange(chips.filter((c) => c !== chip).join(", "));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,6 +46,8 @@ export default function IngredientForm({ value, onChange, onSubmit, isLoading })
         rows={6}
         className="focus-ring w-full resize-none rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-800 placeholder:text-neutral-400 transition focus:border-brand-400 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:placeholder:text-neutral-600"
       />
+
+      <IngredientChips chips={chips} onRemove={handleRemoveChip} />
 
       <div className="mt-4 flex flex-col-reverse items-stretch justify-between gap-3 sm:flex-row sm:items-center">
         <p className="text-xs text-neutral-400 dark:text-neutral-500">

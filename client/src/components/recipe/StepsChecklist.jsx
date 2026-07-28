@@ -1,11 +1,18 @@
-import { RotateCcw } from "lucide-react";
+import { PartyPopper, RotateCcw } from "lucide-react";
 
 export default function StepsChecklist({ steps, checked, onToggle, onReset }) {
   const completedCount = checked.size;
   const progress = steps.length > 0 ? Math.round((completedCount / steps.length) * 100) : 0;
+  const isComplete = steps.length > 0 && completedCount === steps.length;
 
   return (
-    <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-soft dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+    <div
+      className={`rounded-2xl border bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:bg-neutral-900 sm:p-6 ${
+        isComplete
+          ? "border-brand-300 dark:border-brand-700/70"
+          : "border-neutral-200 dark:border-neutral-800"
+      }`}
+    >
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
           Cooking Steps
@@ -31,10 +38,19 @@ export default function StepsChecklist({ steps, checked, onToggle, onReset }) {
         </div>
         <div className="h-2 w-full overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-brand-400 to-brand-600 transition-[width] duration-500 ease-out"
+            className={`h-full rounded-full bg-gradient-to-r transition-[width] duration-500 ease-out ${
+              isComplete ? "from-brand-500 to-accent-500" : "from-brand-400 to-brand-600"
+            }`}
             style={{ width: `${progress}%` }}
           />
         </div>
+
+        {isComplete && (
+          <div className="animate-celebrate-in mt-3 flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-50 to-accent-50 px-3 py-2 text-sm font-medium text-brand-700 dark:from-brand-900/30 dark:to-accent-900/20 dark:text-brand-300">
+            <PartyPopper size={16} />
+            Recipe complete — nice work!
+          </div>
+        )}
       </div>
 
       <ol className="space-y-2.5">

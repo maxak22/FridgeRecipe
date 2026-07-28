@@ -11,7 +11,10 @@ export default function SavedRecipesPanel({ savedRecipes, onLoad, onRemove }) {
       </h3>
       <ul className="divide-y divide-neutral-100 dark:divide-neutral-800">
         {savedRecipes.map((recipe) => (
-          <li key={recipe.title} className="flex items-center justify-between gap-3 py-2.5">
+          <li
+            key={recipe.title}
+            className="flex items-center justify-between gap-3 rounded-lg px-1.5 py-2.5 transition-colors duration-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+          >
             <button
               type="button"
               onClick={() => onLoad(recipe)}
