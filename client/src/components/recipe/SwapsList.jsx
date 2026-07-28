@@ -4,7 +4,7 @@ export default function SwapsList({ swaps }) {
   if (!swaps?.length) return null;
 
   return (
-    <div className="rounded-2xl border border-accent-200 bg-accent-50/50 p-5 shadow-soft dark:border-accent-900/40 dark:bg-accent-950/10 sm:p-6">
+    <div className="rounded-2xl border border-accent-200 bg-accent-50/50 p-5 shadow-soft dark:border-accent-900/50 dark:bg-accent-900/10 sm:p-6">
       <h3 className="mb-4 flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-accent-700 dark:text-accent-400">
         <Shuffle size={14} />
         Ingredient Swaps
