@@ -1,0 +1,14 @@
+{
+  "name": "fridgechef-ai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fridge-to-recipe AI app — root convenience scripts. See client/ and server/ for the actual apps.",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c green,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
