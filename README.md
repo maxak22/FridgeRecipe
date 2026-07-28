@@ -1,6 +1,9 @@
 # FridgeChef AI
 
+**Live demo:** [fridge-recipe-chi.vercel.app](https://fridge-recipe-chi.vercel.app)
+
 Turn a free-form list of ingredients into a complete, interactive recipe — powered by Groq's `llama-3.3-70b-versatile`, rendered entirely as structured React UI (never as raw AI text).
+
 
 ## Project Overview
 
